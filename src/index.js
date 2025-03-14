@@ -3,6 +3,13 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import 'bootstrap/dist/css/bootstrap.css';
+// import Counter from './components/FunctionCounter.jsx';
+// import Counters from './components/Counters.jsx';
+import Counter from './components/counter.jsx';
+import Counters from "./components/Counters";
+
+
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
