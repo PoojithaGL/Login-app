@@ -33,7 +33,7 @@ const Loginpage = () => {
   const handleLogin = () => {
     setMessage("Login successful! Redirecting...");
   
-  dispatch({ type: "SET_COLOR", payload: "bg-success" });
+
 };//
 
   return (
