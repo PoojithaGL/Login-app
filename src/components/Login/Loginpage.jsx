@@ -2,6 +2,7 @@ import React, { useState,useContext } from "react";
 import "./Loginpage.css";
 import ColorContext from "../../Context/ColorContext";
 
+
 const Loginpage = () => {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
@@ -10,6 +11,9 @@ const Loginpage = () => {
   const [message, setMessage] = useState();
   const color = useContext(ColorContext)
   console.log(color);
+
+  const { state, dispatch } = useContext(ColorContext);//
+
 
   const handleUsername = (event) => {
     console.log(event.target.value);
@@ -28,9 +32,12 @@ const Loginpage = () => {
 
   const handleLogin = () => {
     setMessage("Login successful! Redirecting...");
-  };
+  
+  dispatch({ type: "SET_COLOR", payload: "bg-success" });
+};//
+
   return (
-    <div className={color}>
+    <div className={state}>
       <div className="header">
         <div className="text">
           {" "}

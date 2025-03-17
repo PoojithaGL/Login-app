@@ -1,14 +1,15 @@
-import { createContext, useReducer } from "react";
-import   ColorContext from "./Context/ColorContext.js";
-import logo from "./logo.svg";
-import "./App.css";
-import Loginpage from "./components/Login/Loginpage.jsx";
-function App() {
 
-  const [state, dispatch] = useReducer(ColorContext, "bg-danger");
+import React, { useReducer } from "react";
+import ColorContext from "./Context/ColorContext.js";
+import Loginpage from "./components/Login/Loginpage.jsx";
+
+
+
+function App() {
+  const [state, dispatch] = useReducer(colorReducer, "bg-danger");
 
   return (
-    <ColorContext.Provider value={state}>
+    <ColorContext.Provider value={{ state }}>
       <Loginpage />
     </ColorContext.Provider>
   );
