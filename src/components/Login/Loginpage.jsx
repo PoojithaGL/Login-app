@@ -96,23 +96,33 @@ import "./Loginpage.css";
 import ColorContext from "../../Context/ColorContext";
 
 const Loginpage = () => {
+  const [userName,setUserName] = useState('');
+  const [password,setPassword] = useState('');
+  const [email,setEmail] = useState('');
+
   const { state, dispatch } = useContext(ColorContext);
   const [message, setMessage] = useState("");
 
   const handleUsername = (event) => {
-    dispatch({ type: "SET_USERNAME", payload: event.target.value });
+    //dispatch({ type: "SET_USERNAME", payload: event.target.value });
+    setUserName(event.target.value)
   };
 
   const handleEmail = (event) => {
-    dispatch({ type: "SET_EMAIL", payload: event.target.value });
+    // dispatch({ type: "SET_PASSWORD", payload: event.target.value });
+    setEmail(event.target.value)
   };
 
   const handlePassword = (event) => {
-    dispatch({ type: "SET_PASSWORD", payload: event.target.value });
+    // dispatch({ type: "SET_PASSWORD", payload: event.target.value });
+    setPassword(event.target.value)
   };
 
   const handleLogin = () => {
     setMessage("Login successful! Redirecting...");
+    dispatch({ type: "SET_USERNAME", payload: userName });
+    dispatch({ type: "SET_EMAIL", payload:  email});
+    dispatch({ type: "SET_PASSWORD", payload: password });
   };
 
   return (
@@ -127,7 +137,7 @@ const Loginpage = () => {
         <div className="input">
           <input
             name="username"
-            value={state.username}
+            value={userName}
             onChange={handleUsername}
             type="text"
             placeholder="Username"
@@ -136,7 +146,7 @@ const Loginpage = () => {
         <div className="input">
           <input
             name="email"
-            value={state.email}
+            value={email}
             onChange={handleEmail}
             type="email"
             placeholder="Email"
@@ -145,7 +155,7 @@ const Loginpage = () => {
         <div className="input">
           <input
             name="password"
-            value={state.password}
+            value={password}
             onChange={handlePassword}
             type="password"
             placeholder="Password"
