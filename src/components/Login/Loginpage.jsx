@@ -94,7 +94,6 @@
 import React, { useContext, useState } from "react";
 import "./Loginpage.css";
 import ColorContext from "../../Context/ColorContext";
-
 const Loginpage = () => {
   const [userName,setUserName] = useState('');
   const [password,setPassword] = useState('');
@@ -104,18 +103,18 @@ const Loginpage = () => {
   const [message, setMessage] = useState("");
 
   const handleUsername = (event) => {
-    //dispatch({ type: "SET_USERNAME", payload: event.target.value });
-    setUserName(event.target.value)
+    dispatch({ type: "SET_USERNAME", payload: event.target.value });
+    // setUserName(event.target.value)
   };
 
   const handleEmail = (event) => {
-    // dispatch({ type: "SET_PASSWORD", payload: event.target.value });
-    setEmail(event.target.value)
+    dispatch({ type: "SET_PASSWORD", payload: event.target.value });
+    // setEmail(event.target.value)
   };
 
   const handlePassword = (event) => {
-    // dispatch({ type: "SET_PASSWORD", payload: event.target.value });
-    setPassword(event.target.value)
+    dispatch({ type: "SET_PASSWORD", payload: event.target.value });
+    // setPassword(event.target.value)
   };
 
   const handleLogin = () => {
@@ -137,7 +136,7 @@ const Loginpage = () => {
         <div className="input">
           <input
             name="username"
-            value={userName}
+            value={state.userName}
             onChange={handleUsername}
             type="text"
             placeholder="Username"
@@ -146,7 +145,7 @@ const Loginpage = () => {
         <div className="input">
           <input
             name="email"
-            value={email}
+            value={state.email}
             onChange={handleEmail}
             type="email"
             placeholder="Email"
@@ -155,7 +154,7 @@ const Loginpage = () => {
         <div className="input">
           <input
             name="password"
-            value={password}
+            value={state.password}
             onChange={handlePassword}
             type="password"
             placeholder="Password"
@@ -176,3 +175,8 @@ const Loginpage = () => {
 };
 
 export default Loginpage;
+
+
+
+
+
